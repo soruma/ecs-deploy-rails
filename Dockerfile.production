@@ -26,7 +26,8 @@ RUN bundle install
 ADD . $APP_HOME
 
 RUN bin/yarn \
- && bin/webpack
+ && bin/webpack \
+ && rails assets:precompile
 
 EXPOSE 3000
 CMD ["./bin/rails", "server", "-b", "0.0.0.0"]
